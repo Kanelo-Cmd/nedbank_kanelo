@@ -16,9 +16,20 @@ or any code that reads from stdin. The container has no TTY attached.
 from pipeline.ingest import run_ingestion
 from pipeline.transform import run_transformation
 from pipeline.provision import run_provisioning
+def main():
+    print("Starting Bronze ingestion...")
+    run_ingestion()
 
+    print("Starting Silver transformation...")
+    run_transformation()
+
+    print("Starting Gold provisioning...")
+    run_provisioning()
+
+    print("Pipeline completed successfully.")
 
 if __name__ == "__main__":
+    main()
     run_ingestion()
     run_transformation()
     run_provisioning()
